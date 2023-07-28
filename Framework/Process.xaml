@@ -1,0 +1,92 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Dictionary structure to store configuration data of the process (settings, constants and assets)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Transaction item to be processed." Name="in_TransactionItemRow" Type="InArgument(sd:DataRow)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap:VirtualizedContainerService.HintSize>1113,819</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ProcessTransaction_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <scg:List x:TypeArguments="x:String" Capacity="52">
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Runtime.InteropServices</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>System.Windows.Forms</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </scg:List>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <scg:List x:TypeArguments="AssemblyReference" Capacity="56">
+      <AssemblyReference>Microsoft.Bcl.AsyncInterfaces</AssemblyReference>
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>PresentationCore</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Composition</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization</AssemblyReference>
+      <AssemblyReference>System.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.ValueTuple</AssemblyReference>
+      <AssemblyReference>System.Windows.Forms</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.Excel</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+    </scg:List>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="400,325" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Default="multiple form of payments: 2TSACW – multiple ancillaries, Visa on Make flow and Mastercard on Manage.&#xA;&#xA;&#xA;*** TICKETLESS ***&#xA; 1. 1TEST/HANNA MR&#xA; 1@EI  152 Q SAT 18DEC DUBLHR    HK1  0640 0800   LK-  /ETK&#xA; 2@EI  155 B FRI 24DEC LHRDUB    HK1  0950 1115   LK-  /ETK&#xA; 3 HT    1 Y THU 24MAR ETKTTT    HK1  1111 1212&#xA;PNR REF-2TSACW&#xA;FONE-AOBEI353-44-333344-M&#xA;TKT- T/E09DECETE01ET/3953398&#xA;H-FAXOSI EI TDPRCD A000337196&#xA;OSI EI FFMU 01 FARE FAMILY PLUS FEE&#xA;OSI EI AFRO EUR/F90.00/X7.83UP/T97.83&#xA;OSI EI AFRI EUR/F269.00/X17.74UB/Y10.55R1/Z15.40GB/T312.69&#xA;OSI EI AFRT EUR/F359.00/X7.83UP/Y17.74UB/Z25.95XT/T410.52&#xA;OSI EI PTYP BS&#xA;OSI EI JTYP SH&#xA;SSRXBAGEIHK1 DUBLHR0152Q18DEC-1TEST/HANNA MR.01BAGS PREPAID 25KG SSRXBAGEI/// MAX&#xA;SSRXBAGEIHK1 LHRDUB0155B24DEC-1TEST/HANNA MR.01BAGS PREPAID 25KG SSRXBAGEI/// MAX&#xA;SSRSPEQEIHK1 DUBLHR0152Q18DEC-1TEST/HANNA MR.01SURF BOARD PREPAI D&#xA;SSRSPEQEIHK1 LHRDUB0155B24DEC-1TEST/HANNA MR.01SURF BOARD PREPAI D&#xA;OSI EI TBM HANNA TEST&#xA;OSI EI TBM 111&#xA;OSI EI TBM NY 1111&#xA;OSI EI TBM IRELAND&#xA;OSI EI EMAIL SENT FROM ASTRAL - 09DEC21 1030Z&#xA;G-FAXSSRRQSTEIHK1  DUBLHR 0152Q18DEC.10E&#xA;SSRRQSTEIHK1  LHRDUB 0155B24DEC.09E&#xA;OSI EI CTCE HANNA.ALIAKSEYEVA//AERLINGUS.COM&#xA;OSI EI --- INTERNET BOOKING ---&#xA;OSI EI LANG EN&#xA;OSI EI FFMARKUP ADT DUBLHR QA26PLUS EUR40.00 O-&#xA;OSI EI FFMARKUP ADT LHRDUB BA26PLUS EUR40.00 R-&#xA;OSI EI QFEECODE Q O-&#xA;OSI EI QFEECODE Q R-&#xA;OSI EI PLUS O-CBG SEC&#xA;OSI EI PLUS R-CBG SEC&#xA;OSI EI HANDLING FEE EUR18.00&#xA;OSI EI TKT/ETK&#xA;SSRTKNEEIHK1 DUBLHR0152Q18DEC-1TEST/HANNA MR.05324439533985C1&#xA;SSRTKNEEIHK1 LHRDUB0155B24DEC-1TEST/HANNA MR.05324439533985C2&#xA;OSI EI SAR CCG EUR18.00/ET/MRR604668/211209/PCVI&#xA;OSI EI SAR FFM EUR80.00/ET/MRR604669/211209/PCVI&#xA;OSI EI SAR CBL EUR10.00/ET/MRR604670/211209/PCVI&#xA;OSI EI SAR CBL EUR10.00/ET/MRR604671/211209/PCVI&#xA;OSI EI SAR CBE EUR40.00/ET/MRR604672/211209/PCVI&#xA;OSI EI SAR CBE EUR40.00/ET/MRR604673/211209/PCVI&#xA;OSI EI SAR SMS EUR2.00/ET/MRR604674/211209/PCVI&#xA;OSI EI SAR SCH EUR4.99/ET/MRR604675/211209/PCCA&#xA;OSI EI SAR SCH EUR4.99/ET/MRR604676/211209/PCCA&#xA;TKTNG RMKS-SEG DATA     FARE QUOTE : NO&#xA;NO.   BAG    STP   NVB   NVA   FB/TD&#xA;01    0PC         18DEC 18DEC QA26PLUS&#xA;02    0PC         24DEC 24DEC BA26PLUS&#xA;PNR DATA&#xA;FARE-  SITI&#xA;OVERALL TOTAL-  EUR   610.52&#xA;NAME     FARE           TAXES         TOTAL        EAP&#xA;00                                    FEE&#xA;A     EUR359.00     1-  EUR7.83UP&#xA;                    2-  EUR17.74UB&#xA;                    3-  EUR25.95XT&#xA;00ISS BHALF 3649281&#xA;00TEL/MAIL    WWW ETKT&#xA;00APP CODE.1 AUTHR&#xA;00FORM PAY 1 PCCA0000006660414415&#xA;A END/RSTR 1 NO RFND/CHG FEE APPLIES&#xA;A END/RSTR 2 CXL BY FLT DT OR NO VALUE&#xA;A FARECALC 1 DUB EI LHR 90.00QA26PLUS EI DUB 269.00BA26PLUS&#xA;A FARECALC 2 EUR359.00 END ROE1.000000&#xA;A FARECALC 4 XTR110.55GB15.40&#xA;RECEIPT RMKS EXIST-DISPLAY *RR&#xA;&#xA;&#xA;HISTORY----------------------------------------------&#xA;&#xA;RCVD-OBE&#xA;AOB EI  GS XX 1156Z/8DEC&#xA;XT 1211/08DEC/OBEX&#xA;TM A FEUR260.98/XEUR16.95UP/YEUR1.50O4/ZEUR70.55XT/&#xA;TM A FEUR260.98/XEUR16.95UP/YEUR1.50O4/ZEUR70.55XT/&#xA;AT 00A1PHUB/12345/16389645837815304/04209218081/EUR/540.96/&#xA;AT 00P1PCVI0000006656625262/&#xA;AX OSI EI TBM TEST VISA&#xA;AX OSI EI TBM AAA&#xA;AX OSI EI TBM AA&#xA;AX OSI EI TBM AAA 123&#xA;AX OSI EI TBM GEORGIA&#xA;AX SSRXBAGEIHK1 DUBCDG0520F22DEC-1BLACK/JOHN MR.01BAGS PREPAID 2 5KG&#xA;AX SSRXBAGEI/// MAX&#xA;AX SSRXBAGEIHK1 CDGDUB0521I24DEC-1BLACK/JOHN MR.02BAGS PREPAID 4 0KG&#xA;AX SSRXBAGEI/// MAX&#xA;AX SSRSPEQEIHK1 DUBCDG0520F22DEC-1BLACK/JOHN MR.01SURF BOARD PRE PAID&#xA;AX SSRSPEQEIHK1 CDGDUB0521I24DEC-1BLACK/JOHN MR.01SURF BOARD PRE PAID&#xA;AX SSRPBRDEIHK1 DUBCDG0520F22DEC-1BLACK/JOHN MR&#xA;AX SSRRQSTEIHK1  DUBCDG 0520F22DEC.10D&#xA;AX SSRRQSTEIHK1  CDGDUB 0521I24DEC.04K&#xA;AX OSI EI HANDLING FEE EUR18.00&#xA;AX OSI EI TKT/ETK&#xA;RCVD-OBE&#xA;AOB EI  GS XX 1156Z/8DEC&#xA;AS HT    1 Y THU 24MAR ETKTTT HK/HK1  1111 1212&#xA;AX OSI EI EMAIL SENT FROM ASTRAL - 08DEC21 1156Z&#xA;AX SSRTKNEEIHK1 DUBCDG0520F22DEC-1BLACK/JOHN MR.05324439525062C1 AX SSRTKNEEIHK1 CDGDUB0521I24DEC-1BLACK/JOHN MR.05324439525062C2 RCVD-&#xA;IE1 EI  SY ET 1156Z/8DEC&#xA;TM 00A1PHUB/12345/16389645837815304/04209218081/EUR/540.96/&#xA;AT 00A1PHUB/12345/16389645837815304/04209218081/EUR/540.96/10222 46/&#xA;RCVD-&#xA;IE1 EI  SY ET 1156Z/8DEC&#xA;AX OSI EI SAR CCG EUR18.00/ET/MRR603738/211208/PCVI&#xA;RCVD-&#xA;IE1 EI  SY ET 1156Z/8DEC&#xA;AX OSI EI SAR CBL EUR30.00/ET/MRR603739/211208/PCVI/0001&#xA;AX OSI EI SAR CBX EUR35.00/ET/MRR603740/211208/PCVI/0002&#xA;AX OSI EI SAR CBE EUR40.00/ET/MRR603741/211208/PCVI/0003&#xA;AX OSI EI SAR CBE EUR40.00/ET/MRR603742/211208/PCVI/0004&#xA;AX OSI EI SAR SCH EUR16.99/ET/MRR603743/211208/PCVI/0005&#xA;AX OSI EI SAR SFR EUR0.00/ET/MRR603744/211208/PCVI/0006&#xA;AX OSI EI SAR SMS EUR2.00/ET/MRR603745/211208/PCVI&#xA;AX OSI EI SAR PBD EUR8.99/ET/MRR603746/211208/PCVI/0008&#xA;RCVD-&#xA;IE1 EI  SY ET 1156Z/8DEC&#xA;AX OSI EI WIN CUSTOMER POLICY ALSIE0000000879&#xA;RCVD-&#xA;AOB EI  GS XX 1156Z/8DEC&#xA;NO NONACTIVE SEGS&#xA;&#xA;" Name="strPnrScrape" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message Process Start" sap:VirtualizedContainerService.HintSize="338,101" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info" Message="[&quot;Started Process&quot;]" />
+  </Sequence>
+</Activity>
